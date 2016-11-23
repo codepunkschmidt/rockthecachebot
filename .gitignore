@@ -3,6 +3,9 @@
 *.lo
 *.o
 *.obj
+\bin\*
+\obj\*
+\.vs\*
 
 # Precompiled Headers
 *.gch
