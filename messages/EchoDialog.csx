@@ -41,7 +41,15 @@ public class EchoDialog : IDialog<object>
         }
         else
         {
-            await context.PostAsync($"{this.count++}: You said {message.Text}");
+            if (message.Text.Contains('#'))
+            {
+                await context.PostAsync("I will do as you command...later");
+            }
+            else
+            {
+                await context.PostAsync($"You said {message.Text}");
+            }
+
             context.Wait(MessageReceivedAsync);
         }
     }
