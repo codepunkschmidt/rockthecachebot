@@ -41,8 +41,7 @@ public class EchoDialog : IDialog<object>
         }
         else
         {
-            
-            if (message.Text.Contains("#"))
+            if (message.Text.StartsWith("#"))
             {
                 await context.PostAsync("I will do as you command...later...when I'm not so tired.");
             }
