@@ -7,6 +7,12 @@ using Microsoft.Bot.Connector;
 [Serializable]
 public class EchoDialog : IDialog<object>
 {
+    private TraceWriter _log;
+    public EchoDialog(TraceWriter log)
+    {
+        _log = log;
+    }
+
     protected int count = 1;
 
     public Task StartAsync(IDialogContext context)
@@ -30,6 +36,7 @@ public class EchoDialog : IDialog<object>
     public virtual async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> argument)
     {
         var message = await argument;
+        log.WriteLine(message.Text);
         if (message.Text == "reset")
         {
             PromptDialog.Confirm(
@@ -41,6 +48,7 @@ public class EchoDialog : IDialog<object>
         }
         else
         {
+            
             if (message.Text.Contains("#"))
             {
                 await context.PostAsync("I will do as you command...later...when I'm not so tired.");
