@@ -209,7 +209,7 @@
         private IEnumerable<Activity> GetVSOBugsFromDateInCommand(Activity activity, string args)
         {
             const string collectionUri = "https://dlwteam.visualstudio.com/DefaultCollection";
-            var connection = new VssConnection(new Uri(collectionUri), new VssBasicCredential("", "wspvcx7z5gumgqezdudjdls63oqqjbdzpknhlwf7z6swlqz7ftrq"));
+            var connection = new VssConnection(new Uri(collectionUri), new VssBasicCredential("", "token"));
 
             if (_witClient == null)
             {
